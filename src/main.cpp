@@ -2,6 +2,8 @@
 #include <string>
 
 #include "Color.h"
+#include "Screen.h"
+#include "TileEdit.h"
 
 int main() {
     std::cout << "Hello and welcome to \033[34mGBATools\033[0m!" << std::endl;
@@ -12,13 +14,14 @@ int main() {
         std::string str;
         while(!choice) {
             std::cout << "1) Convert 8-bit \033[31mc\033[32mo\033[33ml\033[34m\033[35mo\033[36mr\033[0m to 5-bit" << std::endl;
-            std::cout << "2) Exit" << std::endl;
+            std::cout << "2) Edit tiles" << std::endl;
+            std::cout << "3) Exit" << std::endl;
 
             std::cin >> str;
 
             if (*str.c_str() == 0) {
                 std::cout << "Pleas input a number" << std::endl;
-            } else if (*str.c_str() < '1' || *str.c_str() > '2') {
+            } else if (*str.c_str() < '1' || *str.c_str() > '3') {
                 std::cout << "I'm affraid I can't help you with that" << std::endl;
             } else {
                 choice = *str.c_str() - '0';
@@ -45,6 +48,9 @@ int main() {
             break;
         }
         case 2:
+            TileEdit::start();
+            return 0;
+        case 3:
             std::cout << "Have a nice day!";
             return 0;
         

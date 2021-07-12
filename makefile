@@ -1,9 +1,9 @@
-SOURCES = src/main.cpp src/Color.cpp
+SOURCES = src/main.cpp src/Color.cpp src/Screen.cpp src/TileEdit.cpp
 INCDIR = lib
 OBJECTS = ${patsubst src/%, obj/%, $(SOURCES:.cpp=.o)}
 DEPEND  = ${patsubst src/%, obj/%, $(SOURCES:.cpp=.d)}
 
-CPPFLAGS = -Wall
+CPPFLAGS = -Wall -lpthread -lSDL2 -lSDL2main
 
 a.out: $(OBJECTS) $(DEPEND)
 	$(CXX) -I $(INCDIR) $(CPPFLAGS) $(OBJECTS) -o $@ $(LIBS)
